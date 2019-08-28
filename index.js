@@ -1,5 +1,5 @@
 var token = process.env.HUBOT_SLACK_TOKEN;
-var logsFolder = process.env.HUBOT_CHATLOG_LOCATION;
+var logsFolder = process.env.HUBOT_CHATLOG_LOCATION || "";
 
 var fs = require('fs');
 var moment = require('moment-timezone');
@@ -18,7 +18,6 @@ module.exports = function(robot) {
             console.log('Error Saving Message to Chat Log: ' + err);
         }
 
-        var userID = msg.message.rawMessage.user.id;
         var channelID = msg.message.rawMessage.channel;
         
         web.channels.info({ channel: channelID })
@@ -55,7 +54,7 @@ module.exports = function(robot) {
                 if(msg.channel.name.length > 1) {
                     var channelName = msg.channel.name
                     var filePath = logsFolder + channelName + '.log';
-                    var streamOpts = {
+                    streamOpts = {
                         file: fs.createReadStream(filePath),
                         channels: channelID,
                         title: 'Chat Log for #' + channelName
