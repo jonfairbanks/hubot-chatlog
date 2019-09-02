@@ -1,5 +1,5 @@
 var token = process.env.HUBOT_SLACK_TOKEN;
-var logsFolder = process.env.HUBOT_CHATLOG_LOCATION || "";
+var logsFolder = process.env.HUBOT_CHATLOG_LOCATION || "/app/logs";
 
 var fs = require('fs');
 var moment = require('moment-timezone');
