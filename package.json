@@ -1,6 +1,6 @@
 {
   "name": "hubot-chatlog",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Automatically log Slack chats for later use",
   "main": "index.js",
   "scripts": {
